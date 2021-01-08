@@ -1,0 +1,17 @@
+type Data {
+    _id: ID!
+    name: String!
+}
+
+input DataInput {
+_id: ID
+name: String!
+}
+
+type Mutation {
+addData(data: DataInput);
+}
+
+type Query {
+data: [Data]
+}
