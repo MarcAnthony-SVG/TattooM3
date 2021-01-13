@@ -11,6 +11,7 @@ import Layout from "../components/Layout";
 //   }
 // `;
 
+
 const Home = () => {
   // const { data, loading, error } = useQuery(HELLO_QUERY);
   return (

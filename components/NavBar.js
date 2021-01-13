@@ -15,8 +15,8 @@ const Nav = () => (
         </Link>
       </li>
       <li>
-        <Link href="/photos">
-          <a>Photos</a>
+        <Link href="/ImageGallery">
+          <a>Image Gallery</a>
         </Link>
       </li>
       <li>
