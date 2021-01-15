@@ -7,7 +7,6 @@ cache:
 script:
   - yarn
   - yarn build
-  - touch out /.nojekyll
   - yarn start
 deploy:
   provider: pages
