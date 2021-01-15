@@ -1,6 +1,8 @@
 import Layout from "../components/Layout";
 import SearchBar from "../components/SearchBar";
 import InstaPhoto from "../components/InstaPhoto";
+const { RESTDataSource } = require('apollo-datasource-rest');
+
 import React from "react";
 const MainContainer = {
   display: "flex",
