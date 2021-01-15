@@ -38,6 +38,8 @@ const client = new ApolloClient({
   link: restLink,
   cache: new InMemoryCache(),
 });
-
+server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});
 // const server = apolloServer.createHandler({ path: "/api/graphql" });
 // export default connectDb(server);
