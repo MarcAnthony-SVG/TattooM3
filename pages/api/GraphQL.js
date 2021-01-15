@@ -2,7 +2,7 @@ import { ApolloServer, gql } from "apollo-server-micro";
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { RestLink } from 'apollo-link-rest';
 import { mergeResolvers, mergeTypeDefs } from "graphql-toolkit";
-import connectDb from "../../lib/mongoose";
+// import connectDb from "../../lib/mongoose";
 require("dotenv").config();
 
 // import { habitsResolvers } from '../../src/api/habits/resolvers';
