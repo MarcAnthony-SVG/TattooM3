@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "start": "next start",
     "build": "next build",
-    "export":"next export",
-    "start": "next start"
-  },
+    "export":"next export"
+      },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@apollo/react-ssr": "^4.0.0",
