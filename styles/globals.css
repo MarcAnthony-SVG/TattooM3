@@ -5,6 +5,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+h1 {
+  font-family: "Permanent Marker"
+}
 
 a {
   color: inherit;
@@ -14,3 +17,7 @@ a {
 * {
   box-sizing: border-box;
 }
+/* .tattooing {
+  background-image: src ();
+
+} */

@@ -6,7 +6,7 @@ cache:
     - node_modules
 script:
   - yarn
-  - yarn build
+  - yarn build && yarn start
   - yarn export
   - touch out
 deploy:

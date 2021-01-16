@@ -2,6 +2,7 @@
 import gql from "graphql-tag";
 import { withApollo } from "../libs/Apollo";
 import Layout from "../components/Layout";
+// require('../public/Pexels.mp4')
 // import HabitList from "../components/HabitList";
 // import HabitForm from "../components/HabitForm";
 
@@ -11,16 +12,16 @@ import Layout from "../components/Layout";
 //   }
 // `;
 
-
 const Home = () => {
   // const { data, loading, error } = useQuery(HELLO_QUERY);
   return (
     <Layout>
       <div className="hero">
-        <h1 className="title">Tattoo M3</h1>
-        <div className="list">
-          {/* <HabitForm /> */}
-          {/* <HabitList /> */}
+        <div>
+            <div className="mainTitle">Tattoo M3</div>
+          <div className="videoComponent">
+            <video loop autoPlay src={require("../public/Pexels.mp4")} />
+          </div>
         </div>
       </div>
 
