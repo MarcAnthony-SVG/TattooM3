@@ -1,3 +1,5 @@
+import Form from "react-bootstrap/Form";
+
 const searchContainer = {
   display: "flex",
   border: "solid 1px",
@@ -11,8 +13,7 @@ const formStyle = {
 };
 const inputStyle = {
   width: "auto",
-//   overflow: 'hidden'//   overflow: 'auto'
-
+  //   overflow: 'hidden'//   overflow: 'auto'
 };
 const SearchBar = (props) => {
   return (
@@ -45,19 +46,22 @@ const SearchBar = (props) => {
           <input type="submit" value="Submit" />
         </form>
       </div>
-      <div style={formStyle} onSubmit={props.handleSubmit}>
-        <form>
-          <label>
-            Style:
-            <input
-              style={inputStyle}
-              type="text"
-              value={props.value}
-              onChange={props.handleChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+      <div style={formStyle}>
+        <Form>
+          <Form.Group controlId="exampleForm.SelectCustomSizeSm">
+            <Form.Label>Style </Form.Label>
+            <Form.Control
+              as="select"
+              size="sm"
+              custom
+              onClick={props.handleClicked}
+            >
+              {props.styles.map((style, id) => (
+             <option key={id} value={style}>{style}</option>
+          ))}
+            </Form.Control>
+          </Form.Group>
+        </Form>
       </div>
     </div>
   );

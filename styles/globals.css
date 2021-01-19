@@ -6,9 +6,24 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 h1 {
-  font-family: "Permanent Marker"
+  font-size: 350%;
+  margin: 0;
+  font-family: "Permanent Marker";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
-
+#ImageGallery{
+  /* height: 400px; */
+  /* width: 800px; */
+  /* background: red; */
+  font-size: 350%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
 a {
   color: inherit;
   text-decoration: none;

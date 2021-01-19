@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 const Nav = () => (
   <nav>
@@ -28,26 +28,28 @@ const Nav = () => (
 
     <style jsx>{`
       :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+      Helvetica, sans-serif;
       }
       nav {
-        text-align: center;
+      text-align: center;
+      background-color: silver;
+      padding: 1px;
+      font-weight: 900;
       }
       ul {
         display: flex;
-        justify-content: space-between;
       }
       nav > ul {
-        padding: 4px 16px;
+        padding: 2px;
       }
       li {
         display: flex;
         padding: 6px 8px;
       }
       a {
-        color: #067df7;
+        color: black;
         text-decoration: none;
         font-size: 13px;
       }
