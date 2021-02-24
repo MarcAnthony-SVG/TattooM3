@@ -1,16 +1,6 @@
-// import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { withApollo } from "../libs/Apollo";
 import Layout from "../components/Layout";
-// require('../public/Pexels.mp4')
-// import HabitList from "../components/HabitList";
-// import HabitForm from "../components/HabitForm";
-
-// const HELLO_QUERY = gql`
-//   query HelloQuery {
-//     sayHello
-//   }
-// `;
 
 const Home = () => {
   // const { data, loading, error } = useQuery(HELLO_QUERY);

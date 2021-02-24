@@ -15,7 +15,7 @@ export function withApollo(PageComponent) {
     );
   };
 
-  WithApollo.getInitialProps = async ctx => {
+  WithApollo.getInitialProps = async (ctx) => {
     const { AppTree } = ctx;
     const apolloClient = (ctx.apolloClient = initApolloClient());
 
@@ -36,7 +36,7 @@ export function withApollo(PageComponent) {
           <AppTree
             pageProps={{
               ...pageProps,
-              apolloClient
+              apolloClient,
             }}
           />
         );
@@ -50,7 +50,7 @@ export function withApollo(PageComponent) {
     const apolloState = apolloClient.cache.extract();
     return {
       ...pageProps,
-      apolloState
+      apolloState,
     };
   };
 
@@ -59,7 +59,7 @@ export function withApollo(PageComponent) {
 
 const isDev = process.env.NODE_ENV !== 'production';
 const url = isDev
-  ? 'http://localhost:3000'
+  ? 'http://localhost:3055'
   : 'https://tracker.scotttolinski.now.sh';
 
 const initApolloClient = (initialState = {}) => {
@@ -69,7 +69,7 @@ const initApolloClient = (initialState = {}) => {
   const client = new ApolloClient({
     uri: `${url}/api/GraphQL`,
     fetch,
-    cache
+    cache,
   });
   return client;
 };
