@@ -5,16 +5,29 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
 h1 {
   font-size: 350%;
   margin: 0;
-  font-family: "Permanent Marker";
+  font-family: 'Permanent Marker';
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
-#ImageGallery{
+.navBar-button {
+  transition-duration: 0.4s;
+  border: 1px solid black;
+  padding: 1px 32px;
+  border-radius: 3px;
+  position: relative;
+  top: -10px;
+}
+.navBar-button:hover {
+  background-color: grey; /* Green */
+  color: white;
+}
+#ImageGallery {
   /* height: 400px; */
   /* width: 800px; */
   /* background: red; */
