@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 const Nav = () => (
   <nav>
@@ -19,24 +19,19 @@ const Nav = () => (
           <a className="navBar-button">Image Gallery</a>
         </Link>
       </li>
-      <li>
-        <Link href="/testpage">
-          <a className="navBar-button">Test Page</a>
-        </Link>
-      </li>
     </ul>
 
     <style jsx>{`
       :global(body) {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-      Helvetica, sans-serif;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+          Helvetica, sans-serif;
       }
       nav {
-      text-align: center;
-      background-color: silver;
-      padding: 1px;
-      font-weight: 900;
+        text-align: center;
+        background-color: silver;
+        padding: 1px;
+        font-weight: 900;
       }
       ul {
         display: flex;

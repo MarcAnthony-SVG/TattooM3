@@ -27,6 +27,10 @@ h1 {
   background-color: grey; /* Green */
   color: white;
 }
+.about-container{
+  border: 2px solid black;
+  : 30px;
+}
 #ImageGallery {
   /* height: 400px; */
   /* width: 800px; */
