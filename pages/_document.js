@@ -1,11 +1,10 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
-
   render() {
     return (
       <Html lang="en">
@@ -21,6 +20,7 @@ class MyDocument extends Document {
             src="../public/tattooing.mp4"
             type="video/mp4"
           />
+          
         </Head>
         <body>
           <Main />

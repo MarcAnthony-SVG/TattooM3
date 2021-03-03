@@ -1,4 +1,6 @@
 import ApolloClient from 'apollo-boost';
+import gql from 'graphql-tag';
+
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/react-hooks';
 import fetch from 'isomorphic-unfetch';
@@ -7,7 +9,21 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 export function withApollo(PageComponent) {
   const WithApollo = ({ apolloClient, apolloState, ...pageProps }) => {
     const client = apolloClient || initApolloClient(apolloState);
-
+    client
+      .query({
+        Unique: gql`
+          query {
+            searchedImage(query: "tattoo") {
+              id
+              tags
+              largeImageURL
+              likes
+              user
+            }
+          }
+        `,
+      })
+      .then((result) => console.log(result.data.searchedImage[0]));
     return (
       <ApolloProvider client={client}>
         <PageComponent {...pageProps} />
@@ -59,7 +75,7 @@ export function withApollo(PageComponent) {
 
 const isDev = process.env.NODE_ENV !== 'production';
 const url = isDev
-  ? 'http://localhost:3055'
+  ? 'http://localhost:4001'
   : 'https://tracker.scotttolinski.now.sh';
 
 const initApolloClient = (initialState = {}) => {

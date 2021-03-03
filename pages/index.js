@@ -3,10 +3,10 @@ import { withApollo } from '../libs/Apollo';
 import Layout from '../components/Layout';
 
 const Home = () => {
-  // const { data, loading, error } = useQuery(HELLO_QUERY);
   return (
     <Layout>
       <div className="hero">
+
         <div>
           <div className="mainTitle">Tattoo M3</div>
           <div className="videoComponent">
