@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-boost';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -9,21 +9,10 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 export function withApollo(PageComponent) {
   const WithApollo = ({ apolloClient, apolloState, ...pageProps }) => {
     const client = apolloClient || initApolloClient(apolloState);
-    client
-      .query({
-        Unique: gql`
-          query {
-            searchedImage(query: "tattoo") {
-              id
-              tags
-              largeImageURL
-              likes
-              user
-            }
-          }
-        `,
-      })
-      .then((result) => console.log(result.data.searchedImage[0]));
+    /*Problem: When ever the query is called multiple instances of the data appear in the console log. 
+    I thought I could fix this by simply looking at a single array, but the instances are not other arrays 
+    rather they appear to be the same query replicated times the number of items.
+*/
     return (
       <ApolloProvider client={client}>
         <PageComponent {...pageProps} />
@@ -79,11 +68,11 @@ const url = isDev
   : 'https://tracker.scotttolinski.now.sh';
 
 const initApolloClient = (initialState = {}) => {
-  // const ssrMode = typeof window === 'undefined';
+  const ssrMode = typeof window === 'undefined';
   const cache = new InMemoryCache().restore(initialState);
 
   const client = new ApolloClient({
-    uri: `${url}/api/GraphQL`,
+    uri: `${url}`,
     fetch,
     cache,
   });

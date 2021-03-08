@@ -1,5 +1,7 @@
 // const { dataSources } = require('./twitterDataSource');
+const DataLoader = require('dataloader');
 const axios = require('axios');
+
 const resolvers = {
   Query: {
     tweet: async (_Source, { id }, { dataSources }) => {
@@ -36,24 +38,26 @@ const resolvers = {
       return tweets;
     },
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////pixabay reolvers
+    ///////////////////////////////////////pixabay reolvers///////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    searchedImage: async (_, { query }, { Token }) => {
-      var response = await axios.get(
-        `https://pixabay.com/api/?key=${Token}&q=${query}&image_type=photo&pretty=true`
-      );
-      var dataArray = response.data.hits;
-      var images = dataArray.map((item) => {
-        var image = {
-          user: item.user,
-          id: item.id,
-          tags: item.tags,
-          largeImageURL: item.largeImageURL,
-          likes: item.likes,
-        };
-        return image;
-      });
-      return images;
+    searched_PB_By_Style: async (_, { style }, { Token }) => {
+      console.log(style)
+      try {
+        const searched_PB_By_Style = await axios.get(
+          `https://pixabay.com/api/?key=${Token}&q=${style}&image_type=photo&pretty=true`
+        );
+        return searched_PB_By_Style.data.hits.map(
+          ({ id, tags, largeImageURL, likes, user }) => ({
+            id,
+            tags,
+            largeImageURL,
+            likes,
+            user,
+          })
+        );
+      } catch (error) {
+        throw error;
+      }
     },
   },
 };

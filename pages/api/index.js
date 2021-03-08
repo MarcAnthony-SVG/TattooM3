@@ -1,12 +1,16 @@
+const { ApolloServerPluginInlineTrace } = require ("apollo-server-core");
 const { ApolloServer } = require('apollo-server');
 const { TwitterAPI } = require('./Twitter/twitterDataSource');
 const { typeDefs } = require('./Twitter/typeDefs.gql');
 const { resolvers } = require('./Twitter/resolvers');
+
 require('dotenv').config();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  tracing: true,
+  // tracing: true,
+  // plugins: [ApolloServerPluginInlineTrace()],
+
   dataSources: () => {
     return {
       twitterAPI: new TwitterAPI(),

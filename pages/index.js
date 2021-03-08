@@ -1,4 +1,3 @@
-import gql from 'graphql-tag';
 import { withApollo } from '../libs/Apollo';
 import Layout from '../components/Layout';
 
@@ -6,7 +5,6 @@ const Home = () => {
   return (
     <Layout>
       <div className="hero">
-
         <div>
           <div className="mainTitle">Tattoo M3</div>
           <div className="videoComponent">
@@ -14,7 +12,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       <style jsx>{`
         .hero {
           width: 100%;

@@ -1,47 +1,79 @@
-import Form from "react-bootstrap/Form";
+import Form from 'react-bootstrap/Form';
+import { useInput } from './Hooks/useInput';
+import { withApollo } from '../libs/Apollo';
+import React from 'react';
 
 const searchContainer = {
-  display: "flex",
-  border: "solid 1px",
-  position: "relative",
-  left: "2%",
-  width: "90%",
-  height: "40px",
+  display: 'flex',
+  border: 'solid 1px',
+  position: 'relative',
+  left: '2%',
+  width: '90%',
+  height: '40px',
 };
 const formStyle = {
-  margin: "auto",
+  margin: 'auto',
 };
 const inputStyle = {
-  width: "auto",
+  width: 'auto',
   //   overflow: 'hidden'//   overflow: 'auto'
 };
 const SearchBar = (props) => {
+  const { value: artist, bind: bindartist, reset: resetartist } = useInput('');
+  const handleSubmit = (evt) => {
+    // evt.preventDefault();
+    alert(`Searching for ${artist}`);
+    resetartist();
+  };
+  const [tattooStyles] = React.useState([
+    { value: 'Traditional', label: 'Traditional' },
+    { value: 'Realism ', label: 'Realism' },
+    { value: 'Watercolor', label: 'Watercolor' },
+    { value: ' Tribal', label: 'Tribal' },
+    { value: 'New School ', label: 'New School' },
+    { value: ' Neo Traditional', label: 'Neo Traditional' },
+    { value: 'Japanese ', label: 'Japanese' },
+    { value: ' Illustrative', label: 'Illustrative' },
+    { value: ' Chicano', label: 'Chicano' },
+    { value: 'Abstract ', label: 'Abstract' },
+    { value: 'Trash Polka ', label: 'Trash Polka' },
+    { value: 'Blackwork', label: 'Blackwork' },
+    { value: ' Greywash', label: 'Greywash' },
+    { value: ' Negative Space', label: 'Negative Space' },
+    { value: 'Silhouette ', label: 'Silhouette' },
+    { value: 'Brushstroke ', label: 'Brushstroke' },
+    { value: ' Dotwork', label: 'Dotwork' },
+    { value: ' Pointillism', label: 'Pointillism' },
+    { value: ' Geometric', label: 'Geometric' },
+    { value: 'Polygon ', label: 'Polygon' },
+    { value: ' Ornamental', label: 'Ornamental' },
+    { value: 'Glitch ', label: 'Glitch' },
+    { value: 'Graffiti ', label: 'Graffiti' },
+  ]);
+  
+
   return (
     <div style={searchContainer}>
-      <div style={formStyle} onSubmit={props.handleSubmit}>
+      {/* <div style={formStyle} onSubmit={handleSubmit}>
         <form>
           <label>
             Location:
             <input
               style={inputStyle}
               type="text"
-              value={props.value}
+              {...bind}
+              value={Submit}
               onChange={props.handleChange}
             />
           </label>
           <input type="submit" value="Submit" />
         </form>
-      </div>
-      <div style={formStyle} onSubmit={props.handleSubmit}>
+      </div> */}
+      <div style={formStyle} onSubmit={handleSubmit}>
         <form>
           <label>
             Artist:
-            <input
-              style={inputStyle}
-              type="text"
-              value={props.value}
-              onChange={props.handleChange}
-            />
+            <input style={inputStyle} type="text" {...bindartist} />
           </label>
           <input type="submit" value="Submit" />
         </form>
@@ -56,9 +88,11 @@ const SearchBar = (props) => {
               custom
               onClick={props.handleClicked}
             >
-              {props.styles.map((style, id) => (
-             <option key={id} value={style}>{style}</option>
-          ))}
+              {tattooStyles.map((style) => (
+                <option key={style.value} value={style.value}>
+                  {style.label}
+                </option>
+              ))}
             </Form.Control>
           </Form.Group>
         </Form>
@@ -67,4 +101,4 @@ const SearchBar = (props) => {
   );
 };
 
-export default SearchBar;
+export default withApollo(SearchBar);

@@ -21,6 +21,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "crypto": "^1.0.1",
+    "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "file-loader": "^6.2.0",
     "gh-pages": "^3.1.0",
