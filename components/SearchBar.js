@@ -1,30 +1,18 @@
-import Form from 'react-bootstrap/Form';
-import { useInput } from './Hooks/useInput';
+import Form from './Form';
 import { withApollo } from '../libs/Apollo';
 import React from 'react';
 
-const searchContainer = {
-  display: 'flex',
-  border: 'solid 1px',
-  position: 'relative',
-  left: '2%',
-  width: '90%',
-  height: '40px',
-};
-const formStyle = {
-  margin: 'auto',
-};
 const inputStyle = {
   width: 'auto',
   //   overflow: 'hidden'//   overflow: 'auto'
 };
 const SearchBar = (props) => {
-  const { value: artist, bind: bindartist, reset: resetartist } = useInput('');
-  const handleSubmit = (evt) => {
-    // evt.preventDefault();
-    alert(`Searching for ${artist}`);
-    resetartist();
-  };
+  // const { value: artist, bind: bindartist, reset: resetartist } = useInput('');
+  // const handleSubmit = (evt) => {
+  //   // evt.preventDefault();
+  //   alert(`Searching for ${artist}`);
+  //   resetartist();
+  // };
   const [tattooStyles] = React.useState([
     { value: 'Traditional', label: 'Traditional' },
     { value: 'Realism ', label: 'Realism' },
@@ -50,10 +38,9 @@ const SearchBar = (props) => {
     { value: 'Glitch ', label: 'Glitch' },
     { value: 'Graffiti ', label: 'Graffiti' },
   ]);
-  
-
+  console.log(props);
   return (
-    <div style={searchContainer}>
+    <div className="search-container">
       {/* <div style={formStyle} onSubmit={handleSubmit}>
         <form>
           <label>
@@ -69,7 +56,7 @@ const SearchBar = (props) => {
           <input type="submit" value="Submit" />
         </form>
       </div> */}
-      <div style={formStyle} onSubmit={handleSubmit}>
+      {/* <div className="form-style">
         <form>
           <label>
             Artist:
@@ -77,26 +64,27 @@ const SearchBar = (props) => {
           </label>
           <input type="submit" value="Submit" />
         </form>
+      </div> */}
+      <div className="form-style">
+        <Form
+          value={props.tattooStyle}
+          setTattooStyle={props.setTattooStyle}
+          onSubmit={props.onSubmit}
+        ></Form>
       </div>
-      <div style={formStyle}>
-        <Form>
-          <Form.Group controlId="exampleForm.SelectCustomSizeSm">
-            <Form.Label>Style </Form.Label>
-            <Form.Control
-              as="select"
-              size="sm"
-              custom
-              onClick={props.handleClicked}
-            >
-              {tattooStyles.map((style) => (
-                <option key={style.value} value={style.value}>
-                  {style.label}
-                </option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-        </Form>
-      </div>
+      <style jsx>{`
+        .search-container {
+          display: flex;
+          border: solid 1px black;
+          position: relative;
+          left: 2%;
+          width: 90%;
+          height: 40px;
+        }
+        .form-style {
+          margin: auto;
+        }
+      `}</style>
     </div>
   );
 };

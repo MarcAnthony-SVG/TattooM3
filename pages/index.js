@@ -8,7 +8,12 @@ const Home = () => {
         <div>
           <div className="mainTitle">Tattoo M3</div>
           <div className="videoComponent">
-            <video id='Mainvideo' loop autoPlay src={require('../public/Pexels.mp4')} />
+            <video
+              id="Mainvideo"
+              loop
+              autoPlay
+              src={require('../public/Pexels.mp4')}
+            />
           </div>
         </div>
       </div>

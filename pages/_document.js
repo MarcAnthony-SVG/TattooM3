@@ -20,11 +20,11 @@ class MyDocument extends Document {
             src="../public/tattooing.mp4"
             type="video/mp4"
           />
-          
         </Head>
         <body>
-          <Main />
+          <Main/>
           <NextScript />
+         
         </body>
       </Html>
     );

@@ -16,6 +16,9 @@ const Cards = (props) => {
     config: { mass: 5, tension: 350, friction: 40 },
   }));
   //_________________________________________________________________________________________________________________________________________________________
+  const imageLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
   return (
     <animated.div
       className="card"
@@ -23,17 +26,13 @@ const Cards = (props) => {
       onMouseLeave={() => set({ xys: [0, 0, 1] })}
       style={{ transform: dprops.xys.interpolate(trans), margin: '10px' }}
     >
-      <div className="PHOTOS">
-        <div
-          key={props.id}
-          className="InfoContainer"
-          style={{ borderBottom: '1px solid black', width: 'auto' }}
-        >
-          <h3>{props.userName}</h3>
-        </div>
+      <div className="card-container">
+        <h3>{props.userName}</h3>
+        <div className="photo" key={props.id}></div>
         <Image
+          loader={imageLoader}
           alt="Mountains"
-          src="/Placeholder.png"
+          src={props.pic}
           width={500}
           height={500}
         ></Image>
@@ -43,6 +42,20 @@ const Cards = (props) => {
           </p>
         </div>
       </div>
+      <style jsx>{`
+        .card-container {
+        }
+        h3 {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          // word-wrap: break-word;
+
+        }
+        .photo {
+          border-bottom: 1px solid black;
+          width: auto;
+        }
+      `}</style>
     </animated.div>
   );
 };
