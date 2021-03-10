@@ -63,9 +63,8 @@ export function withApollo(PageComponent) {
 }
 
 const isDev = process.env.NODE_ENV !== 'production';
-const url = isDev
-  ? 'http://localhost:4001'
-  : 'https://tracker.scotttolinski.now.sh';
+const url =  isDev || 'http://localhost:4001'
+ 
 
 const initApolloClient = (initialState = {}) => {
   const ssrMode = typeof window === 'undefined';

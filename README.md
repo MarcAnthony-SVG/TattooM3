@@ -25,6 +25,7 @@ This project is intended to further my love of tattoos and my love of coding. Th
 [X] Create a schema
 -Apollo
 [X] Connect API data from the server to to the Front-End
+[] Server isn't running when built, this error needs to get fixed in order to pass any data though.
 -Styling
 [] Refactor css into styled-jsx
 
