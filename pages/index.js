@@ -4,12 +4,11 @@ import Layout from '../components/Layout';
 const Home = () => {
   return (
     <Layout>
-      <div className="hero">
+      <div className="home">
         <div>
-          <div className="mainTitle">Tattoo M3</div>
-          <div className="videoComponent">
+          <div className="main-title">Tattoo M3</div>
+          <div className="video-container">
             <video
-              id="Mainvideo"
               loop
               autoPlay
               src={require('../public/Pexels.mp4')}
@@ -18,24 +17,26 @@ const Home = () => {
         </div>
       </div>
       <style jsx>{`
-        .hero {
+        .home {
           width: 100%;
           color: #333;
         }
-        .title {
-          margin-top: 0;
+        .main-title {
+          position: absolute;
+          left: 37vw;
+          z-index: 1;
+          font-size: 10vh;
+          font-family: Permanent Marker;
+          color: aliceblue;
+        }
+        .video-container {
+          width: auto;
+        }
+        video {
           width: 100%;
-          padding-top: 80px;
-          line-height: 1.15;
-          font-size: 48px;
-        }
-        .title,
-        .description {
-          text-align: center;
-        }
-        .list {
-          max-width: 600px;
-          margin: 0 auto;
+          height: 92.2%;
+          object-fit: fill;
+          position: absolute;
         }
       `}</style>
     </Layout>

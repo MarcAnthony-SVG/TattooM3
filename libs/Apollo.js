@@ -1,6 +1,4 @@
 import ApolloClient from 'apollo-boost';
-import { gql } from '@apollo/client';
-
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/react-hooks';
 import fetch from 'isomorphic-unfetch';

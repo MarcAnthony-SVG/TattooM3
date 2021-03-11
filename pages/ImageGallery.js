@@ -57,7 +57,7 @@ const ImageGallery = (props) => {
   return (
     <Layout>
       <div className="Image-Gallery-Container">
-        <h1 id="ImageGallery">Image Gallery</h1>
+        <h1 id="image-gallery">Image Gallery</h1>
         <SearchBar
           value={tattooStyle}
           onChange={getTattooStyle}
@@ -80,6 +80,13 @@ const ImageGallery = (props) => {
         .Image-Gallery-Container {
           background-color: white;
           color: black;
+        }
+        #image-gallery {
+          font-size: 350%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
         }
         .SearchBar-Container {
           background-color: white;
