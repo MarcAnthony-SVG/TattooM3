@@ -60,18 +60,25 @@ export function withApollo(PageComponent) {
   return WithApollo;
 }
 
-const isDev = process.env.NODE_ENV !== 'production';
-const url =  isDev || 'http://localhost:4001'
- 
+
+const client = new ApolloClient({
+  uri: `https://apollo-server--api.herokuapp.com/`,
+  fetch,
+  // cache,
+  // Provide some optional constructor fields
+  name: 'react-web-client',
+  version: '1.3',
+  queryDeduplication: false,
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: 'cache-and-network',
+    },
+  },
+});
 
 const initApolloClient = (initialState = {}) => {
   const ssrMode = typeof window === 'undefined';
   const cache = new InMemoryCache().restore(initialState);
 
-  const client = new ApolloClient({
-    uri: `${url}`,
-    fetch,
-    cache,
-  });
   return client;
 };

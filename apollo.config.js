@@ -1,5 +1,5 @@
 module.exports = {
-    client: {
-      service: "TattooM3"
-    }
-  };
+  client: {
+    service: 'TattooM3',
+  },
+};

@@ -1,26 +1,10 @@
 import Layout from '../components/Layout';
 import SearchBar from '../components/SearchBar';
 import Cards from '../components/Cards';
-const { RESTDataSource } = require('apollo-datasource-rest');
 import React, { useReducer, useState } from 'react';
-import { ApolloClient } from 'apollo-boost';
 import { withApollo } from '../libs/Apollo';
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { gql, useQuery } from '@apollo/client';
 import { useForm } from 'react-hook-form';
-
-// const GET_CARD_BY_STYLE = gql`
-//   {
-//     searched_PB_By_Style(style: "tattoos") {
-//       id
-//       tags
-//       largeImageURL
-//       likes
-//       user
-//     }
-//   }
-// `;
-//////////////////////////////TESTING
 const TEST_CARD_SEARCH = gql`
   query Query($search: String) {
     searched_PB_By_Style(style: $search) {
@@ -32,7 +16,6 @@ const TEST_CARD_SEARCH = gql`
     }
   }
 `;
-//////////////////////////////TESTING
 
 const ImageGallery = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
@@ -49,11 +32,12 @@ const ImageGallery = (props) => {
   const { loading, error, data } = useQuery(TEST_CARD_SEARCH, {
     variables: { search: `${tattooStyle}` },
   });
-  if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
+  if (loading) return 'Loading...';
   console.log('Testing Tattoo Style', `tattoo ${tattooStyle}`);
   var userData = data.searched_PB_By_Style;
   console.log(userData);
+
   return (
     <Layout>
       <div className="Image-Gallery-Container">
