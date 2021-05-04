@@ -1,19 +1,14 @@
 import Form from './Form';
+import SearchForm from './SearchForm';
 import { withApollo } from '../libs/Apollo';
-import React from 'react';
+import React, { useState } from 'react';
 
-const inputStyle = {
-  width: 'auto',
-  //   overflow: 'hidden'//   overflow: 'auto'
-};
 const SearchBar = (props) => {
-  // const { value: artist, bind: bindartist, reset: resetartist } = useInput('');
-  // const handleSubmit = (evt) => {
-  //   // evt.preventDefault();
-  //   alert(`Searching for ${artist}`);
-  //   resetartist();
-  // };
-  const [tattooStyles] = React.useState([
+  const [artist, setArtist] = useState('');
+  const onSubmit = (data) => {
+    props.setTattooStyle(data.style);
+  };
+  const [tattooStyles, setStyle] = React.useState([
     { value: 'Traditional', label: 'Traditional' },
     { value: 'Realism ', label: 'Realism' },
     { value: 'Watercolor', label: 'Watercolor' },
@@ -38,33 +33,35 @@ const SearchBar = (props) => {
     { value: 'Glitch ', label: 'Glitch' },
     { value: 'Graffiti ', label: 'Graffiti' },
   ]);
-  console.log(props);
   return (
     <div className="search-container">
-      {/* <div style={formStyle} onSubmit={handleSubmit}>
+      {/* <div style={inputStyle} onSubmit={setLocation}>
         <form>
           <label>
             Location:
             <input
               style={inputStyle}
               type="text"
-              {...bind}
-              value={Submit}
+              value={props.data}
               onChange={props.handleChange}
             />
           </label>
           <input type="submit" value="Submit" />
         </form>
       </div> */}
-      {/* <div className="form-style">
-        <form>
+      <div className="form-style">
+        {/* <SearchForm
+          setArtist={props.setArtist}
+          onSubmit={props.onSubmit}
+        ></SearchForm> */}
+        <form >
           <label>
             Artist:
-            <input style={inputStyle} type="text" {...bindartist} />
+            <input type="text" {...setArtist} />
           </label>
           <input type="submit" value="Submit" />
         </form>
-      </div> */}
+      </div>
       <div className="form-style">
         <Form
           value={props.tattooStyle}

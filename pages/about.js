@@ -1,8 +1,5 @@
 import Layout from '../components/Layout';
-import Image from 'next/image';
-
 const About = () => {
-
   return (
     <Layout>
       <h1
@@ -13,6 +10,16 @@ const About = () => {
       >
         About
       </h1>
+      <img
+        className="backgroundImageBlur"
+        style={{
+          zIndex: -1,
+          position: 'absolute',
+          width: '100%',
+          height: '90%',
+        }}
+        src="/Tattooing_Background.jpg"
+      />
       <div
         style={{
           position: 'relative',
@@ -22,12 +29,12 @@ const About = () => {
           justifyContent: 'center',
         }}
       >
-        <Image
+        {/* <Image
           className="backgroundImageBlur"
           layout="fill"
           objectFit="cover"
           src="/images/Tattooing_Background.jpg"
-        />
+        /> */}
         <div className="about-container">
           <h2>WELCOME TO TATTOO M3!</h2>
           <div>

@@ -10,7 +10,7 @@ const Nav = () => (
         </Link>
       </li>
       <li>
-        <Link href="/about">
+        <Link href="/About">
           <a className="navBar-button">About</a>
         </Link>
       </li>
@@ -19,6 +19,11 @@ const Nav = () => (
           <a className="navBar-button">Image Gallery</a>
         </Link>
       </li>
+      {/* <li>
+        <Link href="/TestingPage">
+          <a className="navBar-button">TestingPage</a>
+        </Link>
+      </li> */}
     </ul>
 
     <style jsx>{`

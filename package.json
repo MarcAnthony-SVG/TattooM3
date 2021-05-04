@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "Start:Server": "nodemon pages/api/graphql.js",
     "build": "next build",
     "export": "next export"
   },

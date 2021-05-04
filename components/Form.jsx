@@ -46,7 +46,6 @@ const Form = (props) => {
         </select>
         <input type="submit" tattoostyle="Submit" />
       </form>
-      <style jsx>{``}</style>
     </div>
   );
 };
