@@ -5,15 +5,9 @@ const Home = () => {
   return (
     <Layout>
       <div className="home">
-        <div>
-          <div className="main-title">Tattoo M3</div>
-          <div className="video-container">
-            <video
-              loop
-              autoPlay
-              src={require('../public/Pexels.mp4')}
-            />
-          </div>
+        <div className="main-title">Tattoo M3</div>
+        <div className="video-container">
+          <video loop autoPlay src={require('../public/Pexels.mp4')} />
         </div>
       </div>
       <style jsx>{`
@@ -34,9 +28,10 @@ const Home = () => {
         }
         video {
           width: 100%;
-          height: 92.2%;
-          object-fit: fill;
+          height: 100%;
           position: absolute;
+          object-fit: cover;
+          z-index: 0;
         }
       `}</style>
     </Layout>

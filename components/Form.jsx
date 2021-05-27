@@ -1,7 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const Form = (props) => {
+const formBorder =
+  'border 1 border-black m-3 p-3 rounded-sm bg-gray-400 flex-medium ';
+
+const Form = ({ setTattooStyle, setView }) => {
   const [tattooStyles] = React.useState([
     { value: 'Traditional', label: 'Traditional' },
     { value: 'Realism ', label: 'Realism' },
@@ -27,24 +30,35 @@ const Form = (props) => {
     { value: 'Glitch ', label: 'Glitch' },
     { value: 'Graffiti ', label: 'Graffiti' },
   ]);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data) => {
-    console.log('FORMS', data.style);
-    props.setTattooStyle(data.style);
+    setTattooStyle(data.category);
+    setView('StylesCont');
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Choose a style: </label>
-        <select ref={register} name="style" value={props.tattooStyle}>
+    <div class={formBorder}>
+      <form class="space-y-1 space-x-1" onSubmit={handleSubmit(onSubmit)}>
+        <label
+          // style={{
+          //   margin: '3px',
+          // }}
+        >
+          Choose a style:
+        </label>
+        <select class="p-0.5 w-auto" {...register('category')}>
           {tattooStyles.map(({ label, value }) => (
             <option key={value} value={value}>
               {label}
             </option>
           ))}
         </select>
-        <input type="submit" tattoostyle="Submit" />
+        <input class="w-full lg:w-auto" type="submit" />
       </form>
     </div>
   );

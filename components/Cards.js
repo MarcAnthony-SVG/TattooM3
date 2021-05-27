@@ -25,7 +25,8 @@ const Cards = (props) => {
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={() => set({ xys: [0, 0, 1] })}
       style={{ transform: dprops.xys.interpolate(trans), margin: '10px' }}
-    >
+    >        {console.log(props.pic)}
+
       <div className="card-container">
         <h3>{props.userName}</h3>
         <div className="photo" key={props.id}></div>
