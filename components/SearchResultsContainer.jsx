@@ -1,4 +1,4 @@
-import Cards from './Cards';
+import Cards from './Cards.jsx';
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 const SEARCH = gql`
@@ -13,8 +13,7 @@ const SEARCH = gql`
   }
 `;
 
-const SearchResultsContainer = ({searchRes}) => {
-
+const SearchResultsContainer = ({ searchRes }) => {
   const { loading, error, data } = useQuery(SEARCH, {
     variables: { search: `${searchRes}` },
   });
@@ -25,19 +24,17 @@ const SearchResultsContainer = ({searchRes}) => {
   console.log(userData);
 
   return (
-    <div>
-      <div className="Card-Container">
-        {userData.map((user, id) => (
-          <Cards
-            userName={user.user}
-            likes={user.likes}
-            key={id}
-            pic={user.largeImageURL}
-          ></Cards>
-        ))}
-      </div>
+    <div className="card-container">
+      {userData.map((user, id) => (
+        <Cards
+          userName={user.user}
+          likes={user.likes}
+          key={id}
+          pic={user.largeImageURL}
+        ></Cards>
+      ))}
       <style jsx>{`
-        .Card-Container {
+        .card-container {
           display: flex;
           flex-wrap: wrap;
           margin: 43px;

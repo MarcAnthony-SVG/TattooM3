@@ -33,7 +33,7 @@ const Form = ({ setTattooStyle, setView }) => {
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -44,11 +44,7 @@ const Form = ({ setTattooStyle, setView }) => {
   return (
     <div class={formBorder}>
       <form class="space-y-1 space-x-1" onSubmit={handleSubmit(onSubmit)}>
-        <label
-          // style={{
-          //   margin: '3px',
-          // }}
-        >
+        <label>
           Choose a style:
         </label>
         <select class="p-0.5 w-auto" {...register('category')}>

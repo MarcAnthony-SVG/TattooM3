@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 const formBorder =
   'border 1 border-black m-3 rounded-sm bg-gray-400 inline-flex';
-  
+
 const SearchForm = ({ setSearchRes, setView }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -21,35 +21,35 @@ const SearchForm = ({ setSearchRes, setView }) => {
         //   background: 'silver',
         // }}
       >
-        <label
-          style={{
-            margin: '4px',
-          }}
-        >
-          Artist:
+        <label>
+          Search:
           <input
             {...register('Search')}
             placeholder="Search"
-            style={{
-              padding: '1px 1vw',
-              margin: '4px',
-              border: '1px solid black',
-              width: '15vw',
-            }}
+            className="input1"
             // class="border border-black focus:outline-none focus:ring-2 focus:red-700 focus:border-transparent"
             // type="text"
           />
-          <input
-            style={{
-              padding: '1px 1vw',
-              margin: '1px 4px',
-              boxSizing: 'border-box',
-              border: '1px solid grey',
-            }}
-            type="submit"
-          />
+          <input className="input2" type="submit" />
         </label>
       </form>
+      <style jsx>{`
+        label {
+          margin: 4px;
+        }
+        .input1 {
+          padding: 1px 1vw;
+          margin: 4px;
+          border: 1px solid black;
+          width: 15vw;
+        }
+        .input2 {
+          padding: 1px 1vw;
+          margin: 1px 4px;
+          box-sizing: border-box;
+          border: 1px solid grey;
+        }
+      `}</style>
     </>
   );
 };

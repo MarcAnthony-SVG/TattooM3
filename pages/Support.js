@@ -11,14 +11,10 @@ const Support = () => {
   const handleClose = () => {
     setModal(false);
   };
-  const container = {
-    height: '90.5vh',
-    width: 'auto',
-    border: '1px solid red',
-  };
+
   return (
     <Layout>
-      <div className="Support" style={container}>
+      <div className="support-container">
         <Modal show={showModal} hide={handleClose}></Modal>
         <button
           style={{ position: 'absolute', zIndex: '1' }}
@@ -27,6 +23,13 @@ const Support = () => {
           Click
         </button>
       </div>
+      <style jsx>{`
+        .support-container {
+          height: 90.5vh;
+          width: auto;
+          border: 1px solid red;
+        }
+      `}</style>
     </Layout>
   );
 };

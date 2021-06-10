@@ -1,5 +1,5 @@
 import { withApollo } from '../libs/Apollo';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout.jsx';
 
 const Home = () => {
   return (

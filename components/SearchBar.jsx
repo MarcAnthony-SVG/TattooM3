@@ -1,4 +1,4 @@
-import Form from './Form';
+import Form from './Form.jsx';
 import SearchForm from './SearchForm';
 import { withApollo } from '../libs/Apollo';
 import React, { useState } from 'react';
@@ -25,11 +25,6 @@ const SearchBar = ({ setSearchRes, setTattooStyle, setView }) => {
           border: solid 1px black;
           position: relative;
           height: 50%;
-        }
-        .form-style {
-          margin: auto;
-          display: flex;
-          justify-content: center;
         }
       `}</style>
     </div>

@@ -1,26 +1,26 @@
-import Layout from '../components/Layout';
+import Layout from '../components/Layout.jsx';
 import SearchBar from '../components/SearchBar.jsx';
 import React, { useReducer, useState } from 'react';
 import { withApollo } from '../libs/Apollo';
 import SearchResultsContainer from '../components/SearchResultsContainer';
 import StylesContainer from '../components/StylesContainer';
 
-const ImageGallery = (props) => {
+const ImageGallery = () => {
   const [tattooStyles, setTattooStyle] = React.useState();
   const [searchRes, setSearchRes] = React.useState();
   const [view, setView] = React.useState();
 
   return (
     <Layout>
-      <div className="Image-Gallery-Container">
+      <div className="image-gallery-container">
         <h1 id="image-gallery">Image Gallery</h1>
         <SearchBar
           setSearchRes={setSearchRes}
           setView={setView}
           setTattooStyle={setTattooStyle}
-          className="SearchBar-Container"
+          className="searchbar-container"
         ></SearchBar>
-        <div className="Card-Container">
+        <div className="card-container">
           {view === 'SearchResultsContainer' ? (
             <SearchResultsContainer
               searchRes={searchRes}
@@ -31,7 +31,7 @@ const ImageGallery = (props) => {
         </div>
       </div>
       <style jsx>{`
-        .Image-Gallery-Container {
+        .image-gallery-container {
           background-color: white;
           color: black;
         }
@@ -42,10 +42,10 @@ const ImageGallery = (props) => {
           justify-content: center;
           text-align: center;
         }
-        .SearchBar-Container {
+        .searchbar-container {
           background-color: white;
         }
-        .Card-Container {
+        .card-container {
           display: flex;
           flex-wrap: wrap;
           margin: 43px;
