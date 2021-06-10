@@ -4,7 +4,16 @@ const About = () => {
     <Layout>
       <h1>About</h1>
       <img src="/Tattooing_Background.jpg" />
-      <div className="container">
+      <div
+        className="center-container"
+        // style={{
+        //   border: '12px solid red',
+        //   position: 'relative',
+        //   display: 'flex',
+        //   height: '791px',
+        //   justifyContent: 'center',
+        // }}
+      >
         <div className="about-container">
           <h2>WELCOME TO TATTOO M3!</h2>
           <div>
@@ -28,10 +37,8 @@ const About = () => {
           filter: blur(1px);
           transform: scale(1.1);
         }
-        .container {
-          position: relative;
+        .center-container {
           display: flex;
-          height: 791px;
           justify-content: center;
         }
         .about-container {

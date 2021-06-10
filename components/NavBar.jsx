@@ -20,11 +20,11 @@ const Nav = () => (
             <a class={desktop_btn}>Image Gallery</a>
           </Link>
         </li>
-        <li class={phone_li + desktop_li}>
+        {/* <li class={phone_li + desktop_li}>
           <Link href="/Support">
             <a class={desktop_btn}>Support</a>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   </header>
