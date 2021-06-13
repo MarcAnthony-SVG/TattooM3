@@ -37,11 +37,11 @@ const Cards = ({ userName, id, pic, likes }) => {
           width={500}
           height={500}
         ></Image>
-        <div style={{ borderTop: '1px solid black', width: 'auto' }}>
+        <footer>
           <p>
             Likes<span>#{likes}</span>
           </p>
-        </div>
+        </footer>
       </div>
       <style jsx>{`
         .card-container {
@@ -53,6 +53,10 @@ const Cards = ({ userName, id, pic, likes }) => {
         }
         .photo {
           border-bottom: 1px solid black;
+          width: auto;
+        }
+        footer {
+          border-top: 1px solid black;
           width: auto;
         }
       `}</style>
